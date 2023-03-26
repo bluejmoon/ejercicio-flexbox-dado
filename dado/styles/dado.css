@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+body{
+	margin: 0;
+	padding: 0;
+	font-family: 'Oswald', sans-serif;
+	background: #5e0694;
+	color: #fff;
+    text-align: center;
+}
+
+header {
+	padding: 20px;
+}
+
+h1{
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+p{
+	font-weight: 300;
+}
+
+a {
+	color: rgb(211, 0, 239);
+}
+
+/* INICIO EXPLICACIÓN FLEXBOX */
+
+/* Section: utilizando las propiedades justify-content:center y flex-wrap:wrap en el
+contenedor padre de los dados, permite que la fila de dados esté ubicada en el centro
+del contenedor en sentido horizontal y se agrupen unos debajos de otros en caso de que
+el tamaño de contenedor (cambio de tamaño de pantalla) se reduzca.  */
+
+section {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+/* -------------------------------------------------------------------------------------------------------- */
+
+/* El selector de atributos CSS coincide con los elementos en función de la presencia o el
+valor de un atributo determinado. Usando los corchetes [] selecciona los elementos cuya
+class lleve el "cara-". Con esto, selecciona todos los div bajo la class "cara-" y les
+define el display:flex más otras propiedades de color, tamaño y diseño */
+
+[class^="cara-"]{
+	display: flex;
+	margin: 1em;
+	width: 150px;
+	height: 150px;
+	padding: 15px;
+	background: #171717;
+	border-radius: 10%;
+}
+
+/* -------------------------------------------------------------------------------------------------------- */
+
+/* align-items:center ubica los elementos del contenedor en el centro con respecto al eje Y.
+justify-content:center ocupa la misma función pero respecto al eje X. */
+
+.cara-uno{
+	justify-content: center;
+	align-items: center;
+}
+
+/* -------------------------------------------------------------------------------------------------------- */
+
+/* justify-content:space-between distribuye los puntos de manera uniforme a lo largo del eje
+principal (eje X).
+la pseudo-clase :nth-child(2) permite alinear el segundo punto de una manera distinta a la establecida
+por flexbox en el contenedor padre */
+
+.cara-dos{
+	justify-content: space-between;
+}
+
+.cara-dos .punto:nth-child(2){
+	align-self: flex-end;
+}
+
+/* -------------------------------------------------------------------------------------------------------- */
+
+/* justify-content:space-between distribuye los puntos de manera uniforme a lo largo del eje
+principal (eje X). */
+
+/* span con class=punto dentro del div con class=cara-tres -> usar align-self:center permite sobreescribir
+la propiedades del contenedor general para alinear este elemento específico dentro del flex.
+
+la pseudo-clase :nth-child(n) nos permite emparejar elementos en función de su posición entre un
+grupo de elementos hermanos; en este caso, alinea el segundo punto y el tercer punto de la cara tres en
+posiciones distintas*/
+
+.cara-tres{
+	justify-content: space-between;
+}
+.cara-tres .punto:nth-child(2){
+	align-self: center;
+}
+.cara-tres .punto:nth-child(3){
+	align-self: flex-end;
+}
+
+/* -------------------------------------------------------------------------------------------------------- */
+
+/* justify-content:space-between distribuye los puntos de manera uniforme a lo largo del eje
+principal (eje X) para el div con class=cara-cuatro.
+
+div con class=columna dentro del div con class=cara-cuatro -> con display:flex establecemos el uso de
+flexbox para el tipo de organización del div columna. flex-direction:column organiza los elementos
+como columna de arriba hacia abajo. */
+
+.cara-cuatro{
+	justify-content: space-between;
+}
+
+.cara-cuatro .columna {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+/* -------------------------------------------------------------------------------------------------------- */
+
+/* justify-content:space-between distribuye los puntos de manera uniforme a lo largo del eje
+principal (eje X) para el div con class=cara-cinco.
+
+div con class=columna dentro del div con class=cara-cinco -> con display:flex establecemos el uso de
+flexbox para el tipo de organización del div columna. flex-direction:column organiza los elementos
+como columna de arriba hacia abajo. */
+
+/* div con class=medio dentro del div con class=cara-cinco -> usar align-self:center permite sobreescribir
+la propiedades del contenedor general para alinear este elemento específico dentro del flex*/
+
+.cara-cinco{
+	display: flex;
+	justify-content: space-between;
+}
+.cara-cinco .columna {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.cara-cinco .medio{
+	align-self: center;
+}
+.cara-seis{
+	display: flex;
+	justify-content: space-between;
+}
+
+/* -------------------------------------------------------------------------------------------------------- */
+
+/* con display:flex establecemos el uso de flexbox para el tipo de organización del div columna de la cara seis.
+flex-direction:column organizará los elementos en columna de arriba hacia abajo y justify-contents:space-between
+permitirá un espaciado uniforme entre los elementos que son los span con class=punto */
+
+.cara-seis .columna{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+/* FINAL EXPLICACIÓN FLEXBOX */
+
+.punto {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: white;
+	box-shadow: inset 0 3px rgb(210, 210, 210), inset 0 -3px rgb(244, 244, 244);
+}
